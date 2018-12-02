@@ -34,6 +34,10 @@ def with_hidden_relu():
 
     hidden_relu_layer = tf.nn.relu(tf.matmul(x, W_relu) + b_relu)
 
+    #dropout, drops some neurons with probability = 'keep_prob' to avoid overfitting
+    keep_prob = tf.constant(0.5)
+    hidden_relu_layer = tf.nn.dropout(hidden_relu_layer, keep_prob=keep_prob)
+
     # layer_2
     W = tf.Variable(tf.zeros([784, 10]))
     b = tf.Variable(tf.zeros([10]))
@@ -49,7 +53,7 @@ def with_hidden_relu():
     # start training
     sess = tf.Session()
     sess.run(init)
-    for i in range(2000):
+    for i in range(1500):
         batch_xs, batch_ys = mnist.train.next_batch(100)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
