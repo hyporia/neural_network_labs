@@ -2,3 +2,4 @@ relu_n_dropout/venv/MNIST_data/
 relu_n_dropout/.idea/vcs.xml
 CNN_4_digit_recogniniton/source/MNIST_data/
 CNN_4_digit_recogniniton/.idea/
+vgg_nn/.idea/
